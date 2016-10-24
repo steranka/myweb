@@ -13,11 +13,11 @@ function compile(watch) {
     function rebundle() {
         bundler.bundle()
             .on('error', function(err) { console.error(err); this.emit('end'); })
-            .pipe(source('build.js'))
+            .pipe(source('ClientApp.jsx'))
             .pipe(buffer())
             .pipe(sourcemaps.init({ loadMaps: true }))
-            .pipe(sourcemaps.write('./'))
-            .pipe(gulp.dest('./build'));
+            .pipe(sourcemaps.write('bundle.js'))
+            .pipe(gulp.dest('./server/public/js'));
     }
 
     if (watch) {
