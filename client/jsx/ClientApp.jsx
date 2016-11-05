@@ -1,12 +1,13 @@
 var React = require("react");
+var ReactDOM = require("react-dom");
 
 var HelloUI = require("./HelloUI.jsx");
 
 console.log("ENTER: Running Single Page Application");
 
 
-var BrowserApp = React.createClass({
-    render: function () {
+var ClientApp = React.createClass({
+    render() {
         // Important Note: You can only return ONE dom element so you must wrap
         // the other elements into a single node (e.g., <div>, or another element)
         return (
@@ -26,6 +27,6 @@ window.onload = function loaded(event){
     console.log("PAGE LOADED - Dom is ready to be accessed!");
     var whereToLoad = document.getElementById("reactjs-app");
     //React.render(BrowserApp, whereToLoad);
-    React.render(<ClientApp/>, whereToLoad);
+    ReactDOM.render(<ClientApp/>, whereToLoad);
 };
 console.log("EXIT:  Running Single Page Application");
