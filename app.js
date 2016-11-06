@@ -51,7 +51,8 @@ browserSync({
         'server/public/index.html',
         'webpack.config.js',
         '.babelrc',
-        'app.js'
+        'app.js',
+        'index.html'
     ]
 });
 

@@ -2,6 +2,7 @@ var React = require("react");
 var ReactDOM = require("react-dom");
 
 var HelloUI = require("./HelloUI.jsx");
+var FormatJsonPage = require("./FormatJsonPage.jsx");
 
 console.log("ENTER: Running Single Page Application");
 
@@ -13,7 +14,8 @@ class ClientApp extends React.Component {
         // the other elements into a single node (e.g., <div>, or another element)
         return (
             <div>
-                <p>This is a ReactJS Single Page Application.</p>
+                <FormatJsonPage/>
+                <p>This is a ReactJS Single Page Application1.</p>
                 <p>There are two calls to the HelloUI component that appear below</p>
                 <HelloUI arg="This is the HelloUI component being rendered in reactJS"/>
                 <p>And next one is</p>

@@ -35,13 +35,26 @@ module.exports = {
         loaders: [
             {
                 test: /.jsx$/,
-                exclude: /(node_modules|bower_components)/,
+                exclude: /node_modules/,
                 loaders: ["babel-loader"]
-            },
-            {
+            }, {
                 test: /\.css$/,
+                exclude: /node_modules/,
                 loader: 'style!css'
+            }, {
+                test: /\.(png|jpg|gif)$/, loader: 'raw-loader'
+            }, {
+                test: /icon-.+\.(svg)$/, loader: 'raw-loader'
+            }, {
+                test: /\.styl$/,loader: 'css-loader!stylus-loader'
+            }, {
+                test: /\.woff(\?v=[0-9]\.[0-9]\.[0-9])?$/, loader: "raw-loader"
+            }, {
+                test: /fonts\/.+\.(ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/, loader: "raw-loader"
+            }, {
+                test: /\.json$/, loader: "json-loader"
             }
+
         ]
     }
 };
