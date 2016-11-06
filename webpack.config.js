@@ -27,6 +27,9 @@ module.exports = {
         new webpack.NoErrorsPlugin()
     ],
 
+    // Not sure if this is working
+    watchOptions: { aggregateTimeout: 1000 },
+    aggregateTimeout: 3000,
 
     module: {
         loaders: [
