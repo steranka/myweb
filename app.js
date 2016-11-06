@@ -16,8 +16,13 @@ var bundler = webpack(webpackConfig);
  * Run Browsersync and use middleware for Hot Module Replacement
  */
 browserSync({
+    ui: {
+      port: 4001
+    },
+    port: 4000,
     server: {
         baseDir: 'server/public',
+        index: 'index.html',
 
         middleware: [
             webpackDevMiddleware(bundler, {
@@ -42,6 +47,11 @@ browserSync({
     files: [
         'client/css/*.css',
         'client/*.html',
-        'client/jsx/*.jsx'
+        'client/jsx/*.jsx',
+        'server/public/index.html',
+        'webpack.config.js',
+        '.babelrc',
+        'app.js'
     ]
 });
+

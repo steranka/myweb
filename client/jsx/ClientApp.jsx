@@ -6,7 +6,8 @@ var HelloUI = require("./HelloUI.jsx");
 console.log("ENTER: Running Single Page Application");
 
 
-var ClientApp = React.createClass({
+class ClientApp extends React.Component {
+
     render() {
         // Important Note: You can only return ONE dom element so you must wrap
         // the other elements into a single node (e.g., <div>, or another element)
@@ -21,7 +22,7 @@ var ClientApp = React.createClass({
 
         );
     }
-});
+}
 
 window.onload = function loaded(event){
     console.log("PAGE LOADED - Dom is ready to be accessed!");
