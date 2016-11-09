@@ -6,8 +6,8 @@ var path = require('path');
 module.exports = {
     debug: true,
     devtool: '#eval-source-map',
-    // context: path.join(__dirname, 'server', 'public', 'js'),
-    context: __dirname,
+    //context: path.join(__dirname, 'client'),
+    //context: __dirname,
 
     entry: [
         './client/jsx/ClientApp.jsx'
@@ -18,8 +18,6 @@ module.exports = {
         publicPath: '/js/',
         filename: 'bundle.js'
     },
-
-    browser: "firefox",
 
     plugins: [
         new webpack.optimize.OccurenceOrderPlugin(),
@@ -34,8 +32,8 @@ module.exports = {
     module: {
         loaders: [
             {
-                test: /.jsx$/,
-                exclude: /(node_modules|bower_components)/,
+                test: /.jsx?$/,
+                include:[ path.join(__dirname, "client")],
                 loaders: ["babel-loader"]
             },
             {

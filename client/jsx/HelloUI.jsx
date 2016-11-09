@@ -44,7 +44,7 @@ var HelloUI = React.createClass( {
 
         return (
             <div style={{ backgroundColor: this.state.myColor }} onClick={this.onClick}>
-                <p>{this.props.arg} counter is {myCount++}</p>
+                <p>{this.props.arg} counter is {myCount++} and then some</p>
             </div>);
     },
     onClick: function(){
