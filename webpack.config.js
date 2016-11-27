@@ -5,9 +5,9 @@ var path = require('path');
 
 module.exports = {
     debug: true,
-    devtool: '#eval-source-map',
+    devtool: 'source-map',
     // context: path.join(__dirname, 'server', 'public', 'js'),
-    context: __dirname,
+    //context: __dirname,
 
     entry: [
         './client/jsx/ClientApp.jsx'
@@ -15,31 +15,39 @@ module.exports = {
 
     output: {
         path: path.join(__dirname, 'server', 'public', 'js'),
-        publicPath: '/js/',
         filename: 'bundle.js'
     },
 
     browser: "firefox",
 
-    plugins: [
-        new webpack.optimize.OccurenceOrderPlugin(),
-        new webpack.HotModuleReplacementPlugin(),
-        new webpack.NoErrorsPlugin()
-    ],
+    // plugins: [
+    //     new webpack.optimize.OccurenceOrderPlugin(),
+    //     new webpack.HotModuleReplacementPlugin(),
+    //     new webpack.NoErrorsPlugin()
+    // ],
 
     // Not sure if this is working
     watchOptions: { aggregateTimeout: 1000 },
     aggregateTimeout: 3000,
 
     module: {
+        resolve: {
+            extensions: ['', '.js', '.jsx']
+        },
+
         loaders: [
             {
-                test: /.jsx$/,
-                exclude: /(node_modules|bower_components)/,
-                loaders: ["babel-loader"]
+                test: /\.jsx?$/,
+                exclude: /node_modules/,
+                include: path.join(__dirname, 'client'),
+                loader: "babel",
+                query: {
+                    presets: ['babel-preset-react-app']
+                }
             },
             {
                 test: /\.css$/,
+                include: path.join(__dirname, 'client'),
                 loader: 'style!css'
             }
         ]

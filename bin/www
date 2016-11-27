@@ -3,7 +3,6 @@
 /**
  * Module dependencies.
  */
-console.log("www is starting");
 var app = require('../server/server');
 var debug = require('debug')('myweb:server');
 var http = require('http');
@@ -14,6 +13,7 @@ var http = require('http');
 
 var port = normalizePort(process.env.PORT || '4000');
 app.set('port', port);
+console.log("www is starting: use url http://localhost:" + port);
 
 /**
  * Create HTTP server.

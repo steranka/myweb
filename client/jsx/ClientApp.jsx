@@ -2,6 +2,7 @@ var React = require("react");
 var ReactDOM = require("react-dom");
 
 var HelloUI = require("./HelloUI.jsx");
+import JsonFormatter from "./JsonFormatter.jsx"
 
 console.log("ENTER: Running Single Page Application");
 
@@ -11,6 +12,7 @@ class ClientApp extends React.Component {
     render() {
         // Important Note: You can only return ONE dom element so you must wrap
         // the other elements into a single node (e.g., <div>, or another element)
+        //return (<h1>hi</h1>)
         return (
             <div>
                 <p>This is a ReactJS Single Page Application.</p>
@@ -18,6 +20,7 @@ class ClientApp extends React.Component {
                 <HelloUI arg="This is the HelloUI component being rendered in reactJS"/>
                 <p>And next one is</p>
                 <HelloUI arg="a second call to it" color="#D0C9FF"/>
+                <JsonFormatter/>
             </div>
 
         );
