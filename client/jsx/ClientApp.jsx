@@ -3,6 +3,7 @@ var ReactDOM = require("react-dom");
 
 var HelloUI = require("./HelloUI.jsx");
 import JsonFormatter from "./JsonFormatter.jsx"
+import SuperAgentTest from "./SuperAgentTest.jsx"
 
 console.log("ENTER: Running Single Page Application");
 
@@ -15,6 +16,7 @@ class ClientApp extends React.Component {
         //return (<h1>hi</h1>)
         return (
             <div>
+                <SuperAgentTest/>
                 <p>This is a ReactJS Single Page Application.</p>
                 <p>There are two calls to the HelloUI component that appear below</p>
                 <HelloUI arg="This is the HelloUI component being rendered in reactJS"/>
@@ -30,6 +32,10 @@ class ClientApp extends React.Component {
 window.onload = function loaded(event){
     console.log("PAGE LOADED - Dom is ready to be accessed!");
     var whereToLoad = document.getElementById("reactjs-app");
+    if (whereToLoad == null){
+        // TODO: Clean this up by appending a <div> to the body and loading there
+        whereToLoad = document.body;
+    }
     //React.render(BrowserApp, whereToLoad);
     ReactDOM.render(<ClientApp/>, whereToLoad);
 };
